@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Background runner: 每小時執行一次 send_kaohsiung_weather.sh
+# Background runner: 每小時執行一次 send_kaohsiung_weather.sh（現在發送 AI 新聞）
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 SEND_SCRIPT="$SCRIPT_DIR/send_kaohsiung_weather.sh"
 
