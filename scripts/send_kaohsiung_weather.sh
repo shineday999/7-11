@@ -56,8 +56,17 @@ fi
 
 MSG="[AI 新聞]\n$NEWS_TEXT"
 
-curl -s -X POST "https://api.telegram.org/bot${BOT_TOKEN}/sendMessage" \
+# 發送 Telegram 消息並檢查響應
+TELEGRAM_RESPONSE=$(curl -s -X POST "https://api.telegram.org/bot${BOT_TOKEN}/sendMessage" \
   -d chat_id="$CHAT_ID" \
-  -d text="$MSG" >/dev/null || true
+  -d text="$MSG")
 
-exit 0
+# 檢查 Telegram API 回應
+if echo "$TELEGRAM_RESPONSE" | grep -q '"ok":true'; then
+  echo "✓ Telegram 消息已發送成功"
+  exit 0
+else
+  echo "✗ Telegram 發送失敗"
+  echo "Response: $TELEGRAM_RESPONSE" >&2
+  exit 1
+fi

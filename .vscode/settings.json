@@ -1,0 +1,12 @@
+{
+    "chat.tools.terminal.autoApprove": {
+        "/^bash -n /workspaces/7-11/scripts/send_kaohsiung_weather\\.sh && bash -n /workspaces/7-11/scripts/weather_runner\\.sh && echo OK$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "/^git add scripts/send_kaohsiung_weather\\.sh scripts/weather_runner\\.sh && git commit -m \"feat: switch weather report to AI news \\(Gemini Pro 3 with RSS fallback\\)\" && git rev-parse --short HEAD$/": {
+            "approve": true,
+            "matchCommandLine": true
+        }
+    }
+}

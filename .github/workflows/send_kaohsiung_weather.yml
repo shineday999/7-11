@@ -24,9 +24,17 @@ jobs:
           WEATHER: ${{ steps.fetch.outputs.weather }}
         run: |
           if [ -z "${BOT_TOKEN}" ] || [ -z "${CHAT_ID}" ]; then
-            echo "Missing TELEGRAM_BOT_TOKEN or TELEGRAM_CHAT_ID secrets" >&2
+            echo "❌ Missing TELEGRAM_BOT_TOKEN or TELEGRAM_CHAT_ID secrets" >&2
             exit 1
           fi
-          curl -s -X POST "https://api.telegram.org/bot${BOT_TOKEN}/sendMessage" \
+          
+          RESPONSE=$(curl -s -X POST "https://api.telegram.org/bot${BOT_TOKEN}/sendMessage" \
             -d chat_id="${CHAT_ID}" \
-            -d text="[高雄天氣] ${WEATHER}"
+            -d text="[高雄天氣] ${WEATHER}")
+          
+          if echo "$RESPONSE" | grep -q '"ok":true'; then
+            echo "✅ Message sent successfully"
+          else
+            echo "❌ Telegram API error: $RESPONSE" >&2
+            exit 1
+          fi
