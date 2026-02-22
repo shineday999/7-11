@@ -1,0 +1,24 @@
+[
+  {
+    "id": "main",
+    "model": { 
+      "primary": "google/gemini-2.5-pro",
+      "fallbacks": ["google/gemini-3-flash", "google/gemini-2.0-flash"] 
+    },
+    "subagents": { "allowAgents": ["writer", "coder"] }
+  },
+  {
+    "id": "writer",
+    "model": { 
+      "primary": "google/gemini-3-flash",
+      "fallbacks": ["google/gemini-2.0-flash"]
+    }
+  },
+  {
+    "id": "coder",
+    "model": { 
+      "primary": "google/gemini-2.5-pro",
+      "fallbacks": ["google/gemini-3-flash"]
+    }
+  }
+]
