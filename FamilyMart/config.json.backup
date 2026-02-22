@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "lastTouchedVersion": "2026.2.19-2",
+    "lastTouchedAt": "2026-02-22T11:04:28.139Z"
+  },
+  "agents": {
+    "defaults": {
+      "models": {
+        "google/gemini-2.5-pro": {},
+        "google/gemini-3-flash": {},
+        "google/gemini-2.0-flash": {},
+        "google/gemini-1.5-pro": {},
+        "google/gemini-1.5-flash": {},
+        "google/gemini-2.0-pro-exp-02-05": {},
+        "google/gemini-2.0-flash-lite-preview-02-05": {},
+        "google/gemini-1.5-flash-8b": {}
+      },
+      "workspace": "/home/abc/.openclaw/workspace-FamilyMart"
+    },
+    "list": [
+      {
+        "id": "main",
+        "model": {
+          "primary": "google/gemini-2.5-pro",
+          "fallbacks": [
+            "google/gemini-2.0-pro-exp-02-05",
+            "google/gemini-1.5-pro",
+            "google/gemini-3-flash",
+            "google/gemini-2.0-flash",
+            "google/gemini-1.5-flash"
+          ]
+        },
+        "subagents": {
+          "allowAgents": [
+            "writer",
+            "coder"
+          ]
+        }
+      },
+      {
+        "id": "writer",
+        "model": {
+          "primary": "google/gemini-3-flash",
+          "fallbacks": [
+            "google/gemini-2.0-flash",
+            "google/gemini-1.5-flash",
+            "google/gemini-1.5-flash-8b"
+          ]
+        }
+      },
+      {
+        "id": "coder",
+        "model": {
+          "primary": "google/gemini-2.5-pro",
+          "fallbacks": [
+            "google/gemini-1.5-pro",
+            "google/gemini-2.0-pro-exp-02-05",
+            "google/gemini-3-flash"
+          ]
+        }
+      }
+    ]
+  },
+  "commands": {
+    "native": "auto",
+    "nativeSkills": "auto",
+    "restart": true
+  },
+  "gateway": {
+    "port": 18790
+  }
+}
