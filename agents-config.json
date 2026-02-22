@@ -3,7 +3,13 @@
     "id": "main",
     "model": { 
       "primary": "google/gemini-2.5-pro",
-      "fallbacks": ["google/gemini-3-flash", "google/gemini-2.0-flash"] 
+      "fallbacks": [
+        "google/gemini-2.0-pro-exp-02-05",
+        "google/gemini-1.5-pro",
+        "google/gemini-3-flash",
+        "google/gemini-2.0-flash",
+        "google/gemini-1.5-flash"
+      ]
     },
     "subagents": { "allowAgents": ["writer", "coder"] }
   },
@@ -11,14 +17,22 @@
     "id": "writer",
     "model": { 
       "primary": "google/gemini-3-flash",
-      "fallbacks": ["google/gemini-2.0-flash"]
+      "fallbacks": [
+        "google/gemini-2.0-flash",
+        "google/gemini-1.5-flash",
+        "google/gemini-1.5-flash-8b"
+      ]
     }
   },
   {
     "id": "coder",
     "model": { 
       "primary": "google/gemini-2.5-pro",
-      "fallbacks": ["google/gemini-3-flash"]
+      "fallbacks": [
+        "google/gemini-1.5-pro",
+        "google/gemini-2.0-pro-exp-02-05",
+        "google/gemini-3-flash"
+      ]
     }
   }
 ]
