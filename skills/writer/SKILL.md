@@ -1,0 +1,1 @@
+# Skill: Content Writer\n\n## Description\nUse this skill when tasked with drafting long-form content, blog posts, tweets, or summarizing documents. Focus on tone, style, and readability.\n\n## Usage\n- Command: (Managed by Agent Logic)\n- Role: 'writer'\n- Model: 'google/gemini-1.5-flash' (Efficient)\n
